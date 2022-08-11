@@ -10,7 +10,9 @@ const userRouter = require('./routes/userRouter');
 
 const booksRouter = require('./routes/books');
 
-const bookingsRouter = require('./routes/bookings')
+const bookingsRouter = require('./routes/bookings');
+
+const commentsRouter = require('./routes/comments')
 
 const app = express();
 
@@ -41,7 +43,8 @@ app.use(
 
 app.use('/', userRouter);
 app.use('/books', booksRouter);
-app.use('/bookings', bookingsRouter)
+app.use('/bookings', bookingsRouter);
+app.use('/comments', commentsRouter)
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);

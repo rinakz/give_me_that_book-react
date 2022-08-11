@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteBookings, getAllBookings, getAllBooks } from '../Redux/action';
+import { Link } from 'react-router-dom';
 
 
 
@@ -8,17 +9,13 @@ function My() {
 
   const dispatch = useDispatch()
   
-  const { authuser } = useSelector(s => s)
   const { bookings } = useSelector (s => s)
+  const { authuser } = useSelector (s => s)
 
   const [update, setUpdate] = useState(true)
 
   useEffect(() => {
     dispatch(getAllBookings())
-  }, [update])
-
-  useEffect(() => {
-    dispatch(getAllBooks())
   }, [update])
   
   function userImage (image) {
@@ -27,6 +24,8 @@ function My() {
   }
 
   const myBookFilter = bookings.filter(el => el.user_id == authuser.id)
+
+  console.log(bookings.filter(el => el.user_id == authuser.id))
 
 
   return (
@@ -44,9 +43,12 @@ function My() {
           }
         </div>
         <div className='myBooking'>
-      {myBookFilter.map(el => 
+      {bookings.filter(el => el.user_id == authuser.id).map(el => 
       <div key={el.id} className='mainBooks'>
-        <div>{el.Book.image && <img className='bookImg' src={el.Book.image} alt="img" />}</div>
+        <div>
+          <Link to={ `/bookpage/${ el.books_id }` }>
+          {el.Book.image && <img className='bookImg' src={el.Book.image} alt="img" />}
+          </Link></div>
         <h1>{el.Book.name}</h1>
         <h2>{el.Book.author}</h2>
         <button onClick={() => dispatch(deleteBookings(el.id))}>вернуть книгу</button>

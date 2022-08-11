@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({User, Books,}) {
       this.belongsTo(User, { foreignKey: 'user_id'}),
-      this.belongsTo(Books, { foreignKey: 'user_id'})
+      this.belongsTo(Books, { foreignKey: 'books_id'})
     }
   }
   Comments.init({
     books_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     descr: DataTypes.STRING,
-    photo: DataTypes.STRING
+    image: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Comments',

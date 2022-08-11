@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteBooks, getAllBooks } from '../Redux/action';
+import { Link } from 'react-router-dom';
 
 function MyBook() {
 
@@ -79,10 +80,11 @@ const handleSubmit = (e) => {
       <div className='allMyBooks'>
         { books.filter(el => el.user_id == authuser.id).length > 0 ? books.sort((a, b) => b.id - a.id).filter(el => el.user_id == authuser.id).map(el => <div key={el.id} className='myBook'>
           <div className='thisBook'>
+            <Link to={ `/bookpage/${ el.id }` }>
             <div>{el.image && <img className='bookImg' src={el.image} alt="img" />}</div>
             <h1>{el.name}</h1>
             <h2>{el.author} <button onClick={() => dispatch(deleteBooks(el.id))}>x</button></h2> 
-          </div>
+            </Link></div>
         </div> ) :
         <p>библиотека пуста :(</p>
         }

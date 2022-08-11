@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN, LOGOUT, GET_ALL_BOOKS, DELETE_BOOKS, GET_ALL_BOOKINGS, DELETE_BOOKINGS} from "./type";
+import { LOGIN, LOGOUT, GET_ALL_BOOKS, DELETE_BOOKS, GET_ALL_BOOKINGS, DELETE_BOOKINGS, GET_ALL_COMMENTS, DELETE_COMMENTS} from "./type";
 
 export const actionLogin = (data) => ({
   type: LOGIN, payload: data
@@ -26,4 +26,14 @@ export const getAllBookings = () => async (dispatch) => {
 export const deleteBookings = (id) => async (dispatch) => {
   const response = await axios.delete(`/bookings/${id}`)
   dispatch({type: DELETE_BOOKINGS, payload: id})
+}
+
+export const getAllComments = () => async (dispatch) => {
+  const response = await axios('/comments')
+  dispatch({type: GET_ALL_COMMENTS, payload: response.data});
+}
+
+export const deleteComments = (id) => async (dispatch) => {
+  const response = await axios.delete(`/comments/${id}`)
+  dispatch({type: DELETE_COMMENTS, payload: id})
 }
