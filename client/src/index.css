@@ -1,0 +1,702 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+body {
+  background-color: rgb(157, 141, 143, 0.7);
+  margin: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition-delay: 99999s;
+}
+
+input[type="text"] {
+color: white;
+}
+
+input[type="email"] {
+  color: white;
+}
+
+input[type="password"] {
+  color: white;
+}
+
+.navMain {
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #5A5560;
+  height: 60px;
+  padding: 0 30px 0 30px;
+}
+
+.navMain span {
+  color: #FAED26;
+}
+
+.navMain a {
+  color: white;
+}
+
+.start {
+  text-transform: uppercase;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.end a {
+  padding: 0 22px 0 22px;
+  color: #FAED26;
+}
+
+.navBookMenu {
+  display: flex;
+  justify-content: center;
+  background-color: #9D8D8F
+}
+
+.navBook {
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  padding: 10px;
+  height: 70px;
+  border-bottom: 2px solid #5A5560;
+}
+
+.navBook a {
+  color: rgb(88, 88, 88);
+  font-size: 22px;
+  padding: 0 50px 0 50px;
+}
+
+.navBook a:hover {
+  opacity: 0.7;
+}
+
+/* component Main */
+
+.searchBook {
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.searchBook span {
+  color: #46344E;
+}
+
+/* component Login */
+
+.loginContainer {
+  background: linear-gradient( rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8) ), url('/public/book.jpeg');
+  z-index: 5;
+  background-size: cover;
+  border-bottom: 2px solid #5A5560;
+}
+
+.authForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+}
+
+.authForm h1 {
+  color: #FAED26;
+}
+
+.authForm span {
+  color: white;
+}
+
+.authForm h4 {
+  color: white;
+  opacity: 0.4;
+  font-style: 8px;
+}
+
+.authForm a {
+  text-decoration: underline;
+}
+
+.authForm input {
+  background-color: transparent;
+  border: none;
+  width: 250px;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  font-size: 18px;
+  border-bottom: 1px solid #FAED26;
+  padding: 20px 0px 0 0;
+  text-align: center;
+}
+
+.authForm button {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 13px 45px;
+  font-size: 19px;
+  border-radius: 100px;
+}
+
+.authForm button:hover{
+  background: white;
+  color: #46344E;
+  opacity: 0.5;
+}
+
+.authForm p {
+  color: #FAED26;
+  text-shadow: 1px 0 0 #FAED26;
+}
+
+/* component My */
+
+.lkContainer {
+  background: linear-gradient( rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8) ), url('/public/lk.jpeg');
+  z-index: 5;
+  background-size: cover;
+  border-bottom: 2px solid #5A5560;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: row-reverse;
+}
+
+.userName {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userName img {
+  width: 350px;
+  max-height: 450px;
+  padding-top: 40px;
+}
+
+.userName h1 {
+  margin: 0;
+  padding: 50px 10px 10px 10px;
+  color: #FAED26;
+  font-size: 50px;
+  border-bottom: 2px solid #FAED26;
+}
+
+.myBooking {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.myBooking > .mainBooks {
+  justify-content: flex-start;
+  height: 370px;
+  align-items: center;
+  margin: 10px;
+}
+
+.myBooking button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+  padding: 10px 15px;
+  font-size: 13px;
+  border-radius: 100px;
+}
+  
+.myBooking button:hover{
+  background: white;
+  color: #46344E;
+  opacity: 0.5;
+}
+
+.iRead {
+  text-align: center;
+  padding-top: 50px;
+  color: #9D8D8F;
+}
+
+
+/* component MyBook */
+
+.myBookContainer {
+  flex-direction: row-reverse;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background: linear-gradient( rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8) ), url('/public/myBook.jpeg');
+  z-index: 5;
+  background-size: cover;
+  border-bottom: 2px solid #5A5560;
+}
+
+.myBookContainer h2 {
+  margin: 0;
+  color: #FAED26;
+  font-size: 30px;
+}
+
+.myBookContainer form {
+  padding: 50px;
+  min-width: 400px;
+  width: 35%;
+}
+
+.myBookContainer input {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  font-weight: 280;
+  font-size: 18px;
+  width: 100%;
+  border-bottom: 1px solid #FAED26;
+  padding: 35px 0px 0 0px;
+  text-align: center;
+}
+
+.bookBtn{
+  margin-top: 30px;
+  margin-bottom: 30px;
+  background-color: transparent;
+  border: 1px solid #9D8D8F;
+  color: #9D8D8F;
+  padding: 13px 45px;
+  font-size: 19px;
+  border-radius: 100px;
+}
+
+.myBookContainer button:hover{
+  background: #9D8D8F;
+  color: #46344E;
+  opacity: 0.5;
+}
+
+.addFile {
+  color: #5A5560;
+  padding: 17px;
+  font-size: 19px;
+  min-width: 200px;
+}
+
+.addFile:hover {
+  color: white;
+  background: #9D8D8F;
+  opacity: 0.3;
+}
+
+.hideInput {
+  background-color: transparent;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 15px 10px 15px;
+  opacity: 0;
+}
+
+.allMyBooks {
+  padding: 50px;
+}
+
+.allMyBooks p {
+  color: #9D8D8F;
+}
+
+.thisBook {
+  width: 400px;
+  border: 2px solid #5A5560;
+  padding: 10px 30px 5px 30px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(157, 141, 143, 0.4);
+}
+
+.thisBook:hover {
+  background-color: #9D8D8F;
+  opacity: 0.7;
+}
+
+.thisBook img {
+  width: 250px;
+}
+
+.thisBook h1 {
+  margin: 5px;
+  font-size: 22px;
+  color: #46344E;
+  border-top: 2px solid #46344E;
+}
+
+.thisBook h2 {
+  margin: 5px;
+  font-size: 20px;
+  color: #FAED26;
+}
+
+.thisBook button {
+width: 25px;
+float: right;
+opacity: 0.5;
+border-radius: 20%;
+}
+
+/* component Main */
+
+.searchBook {
+  background: linear-gradient( rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8) ), url('/public/main.jpeg');
+  z-index: 5;
+  background-size: cover;
+  border-bottom: 2px solid #5A5560;
+}
+
+.searchBook h2 {
+  color: #9D8D8F;
+}
+
+.mainContain {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.mainContain p {
+  color: #9D8D8F;
+}
+
+.mainBooks {
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  width: auto;
+  max-width: 400px;
+  height: 450px;
+  border: 2px solid #5A5560;
+  padding: 10px 30px 5px 30px;
+  margin-bottom: 50px;
+  background-color: rgb(157, 141, 143, 0.4);
+  z-index: 2;
+}
+
+.mainBooks:hover {
+  background-color: #9D8D8F;
+  opacity: 0.5;
+}
+
+.mainBooks img {
+  width: auto;
+  max-height: 200px;
+}
+
+.mainBooks p {
+  font-size: 15px;
+  color: white;
+  opacity: 0.5;
+  margin: 5px;
+}
+
+.mainBooks h1 {
+  margin: 5px;
+  font-size: 22px;
+  color: #46344E;
+  border-top: 2px solid #46344E;
+}
+
+.mainBooks h2 {
+  margin: 5px;
+  font-size: 20px;
+  color: #FAED26;
+}
+
+.mainBooks h3 {
+  margin: 5px;
+  font-size: 15px;
+  color: #46344E;
+}
+
+/* component BookPage */
+
+.bookPageContain {
+  background: linear-gradient( rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8) ), url('/public/main.jpeg');
+  z-index: 5;
+  background-size: cover;
+  border-bottom: 2px solid #5A5560;
+}
+.bookInPage {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.bookInPageImg {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.bookInPageImg img {
+  max-height: 500px;
+  width: auto;
+  max-width: 500px;
+}
+
+.bookBooking {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 300px;
+  height: 370px;
+  border: 2px solid rgb(255, 255, 255, 0.5);
+  text-align: center;
+}
+
+.windBooking {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.bookInPageDescr {
+padding-left: 30px;
+display: flex;
+justify-content: space-between;
+flex-direction: column;
+}
+
+.bookInPageDescr h5 {
+  max-width: 500px;
+  margin: 0;
+  font-size: 15px;
+  color: #9D8D8F;
+}
+
+.bookInPage h1 {
+  max-width: 500px;
+  color: #FAED26;
+  font-size: 50px;
+  margin: 0;
+  padding: 20px 0 20px 0;
+  border-bottom: 2px solid #FAED26;
+}
+
+.bookInPage p {
+  color: white;
+  font-size: 20px;
+}
+
+.pDescr {
+  max-width: 500px;
+  padding-bottom: 30px;
+  opacity: 0.7;
+  font-size: 18px !important;
+  border-bottom: 2px solid #9D8D8F;
+
+}
+
+.owner h5 span {
+  border-bottom: 1px solid #FAED26;
+  font-size: 17px;
+}
+
+.bookBooking h5 {
+  color: #FAED26;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+
+.bookBooking h4 {
+  color: #9D8D8F;
+}
+
+.dateBooking {
+  font-size: 15px !important;
+  color: #FAED26 !important;
+  margin: 10px 15px 10px 15px;
+}
+
+.formBooking {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.formBooking input {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  font-size: 15px;
+  width: 50%;
+  border-bottom: 1px solid #FAED26;
+  text-align: center;
+}
+
+.formBooking button{
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: 1px solid #9D8D8F;
+  color: #9D8D8F;
+  padding: 10px 40px;
+  font-size: 12px;
+  border-radius: 100px;
+}
+
+.formBooking button:hover{
+  background: #9D8D8F;
+  color: #46344E;
+  opacity: 0.5;
+}
+
+.bookComment {
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.bookComment h1 {
+  margin: 0 !important;
+  font-size: 35px !important;
+  max-width: 100% !important;
+  color: #9D8D8F;
+  border-bottom: 2px solid #9D8D8F;
+}
+
+.bookComment h2 {
+  font-size: 30px;
+  margin-top: 40px;
+  color: #FAED26;
+}
+
+.bookComment h4 {
+  color: #9D8D8F;
+}
+
+.bookComment h5 {
+  color: #9D8D8F;
+}
+
+.formComment input {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  padding: 20px 0 0 0 ;
+  font-size: 25px;
+  border-bottom: 1px solid #FAED26;
+  text-align: center;
+}
+
+.formComment button {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: transparent;
+  border: 1px solid #9D8D8F;
+  color: #9D8D8F;
+  padding: 10px 40px;
+  font-size: 12px;
+  border-radius: 100px;
+}
+
+.formComment button:hover{
+  background: #9D8D8F;
+  color: #46344E;
+  opacity: 0.5;
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.stars p {
+  margin: 10px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 100%;
+  border: 4px solid #FAED26;
+  color: #FAED26 !important;
+  opacity: 0.7;
+}
+
+.stars p:hover {
+  box-shadow:0 0 10px #9D8D8F;
+  background-color: #FAED26;
+  color: #46344E !important;
+}
+
+.userComment {
+  background-color: rgb(157, 141, 143, 0.1);
+  border: 1px solid rgb(255, 255, 255, 0.4);
+  width: 500px;
+  padding: 5px;
+  margin: 10px;
+  color: #FAED26;
+}
+
+.userComment h4 {
+  color: white;
+}
+
+.userComment img {
+  max-width: 200px;
+  max-height: 300px;
+}
+
+.dateComment {
+  font-size: 15px !important;
+  color: black !important;
+  opacity: 0.5;
+}
+
+/* component Rating */
+
+.ratingContain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  background: linear-gradient( rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8) ), url('/public/my.jpeg');
+  z-index: 5;
+  background-size: cover;
+  border-bottom: 2px solid #5A5560;
+}
+
+.ratingContain h1 {
+  color: #9D8D8F;
+  border-bottom: 2px solid #9D8D8F;
+}
