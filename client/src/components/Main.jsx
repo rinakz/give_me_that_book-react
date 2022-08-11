@@ -1,5 +1,6 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getAllBooks } from '../Redux/action';
 
 function Main() {
@@ -17,6 +18,7 @@ function Main() {
       <h2>Эти <span>книги</span> ждут тебя</h2>
       <div className='mainContain'>
       { books.length > 0 ? books.map(el => <div key={el.id}>
+        <Link to={ `/bookpage/${ el.id }` }>
           <div className='mainBooks'>
             {el.rating > 0 ? <p>{el.rating}</p> : <p>у книги еще нет оценок</p>}
             <p>владелец: {el.User.name}</p>
@@ -26,6 +28,7 @@ function Main() {
             <h3>{el.genre}</h3>
             <p>{symbols(el.descr)}</p>
           </div>
+        </Link>
         </div> ) :
         <p>библиотека пуста :(</p>
         }

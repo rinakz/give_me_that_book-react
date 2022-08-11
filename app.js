@@ -8,7 +8,9 @@ const cors = require('cors');
 
 const userRouter = require('./routes/userRouter');
 
-const booksRouter = require('./routes/books')
+const booksRouter = require('./routes/books');
+
+const bookingsRouter = require('./routes/bookings')
 
 const app = express();
 
@@ -38,7 +40,8 @@ app.use(
 );
 
 app.use('/', userRouter);
-app.use('/books', booksRouter)
+app.use('/books', booksRouter);
+app.use('/bookings', bookingsRouter)
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);

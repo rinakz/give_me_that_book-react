@@ -10,6 +10,7 @@ import Navbar from './components/Navbar';
 import My from './components/My';
 import MyBook from './components/MyBook';
 import Rating from './components/Rating';
+import BookPage from './components/BookPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,9 +21,10 @@ root.render(
         <Route path='/' element={<Main />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Login />}/>
-        <Route path='/my' element={<My/>}/>
-        <Route path='/mybook' element={<MyBook/>}/>
-        <Route path='/rating' element={<Rating/>}/>
+        <Route path='/my' element={<My />}/>
+        <Route path='/mybook' element={<MyBook />}/>
+        <Route path='/rating' element={<Rating />}/>
+        <Route path='/bookpage/:id' element={<BookPage />}/>
     </Routes>
     </Provider>
   </BrowserRouter> 

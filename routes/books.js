@@ -32,6 +32,24 @@ router.get('/', async (req, res) => {
   res.json(books);
 });
 
+router.post('/:id', async (req, res) => {
+  const { rating } = req.body;
+  console.log(req.body);
+  try {
+    if (req.session.userId) {
+      const { userId } = req.session;
+      console.log('>>>', userId);
+      const newBooks = await Books.update({
+        rating,
+      });
+    }
+
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+  }
+});
+
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   try {
