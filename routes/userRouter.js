@@ -26,6 +26,14 @@ router.get('/logout', async (req, res) => {
     res.sendStatus(500);
   }
 });
+router.get('/allusers', async (req, res) => {
+  try {
+    const data = await User.findAll({include : {all : true}})
+    res.json(JSON.parse(JSON.stringify(data)))
+  } catch (error) {
+    res.sendStatus(500);
+  }
+});
 
 router.post('/register', upload.single('image'), async (req, res) => {
   try {
@@ -43,9 +51,8 @@ router.post('/register', upload.single('image'), async (req, res) => {
       req.session.userId = result.id;
       return res.json(result);
     }
-    throw Error(result);
   } catch (error) {
-    return res.json(error);
+    return res.sendStatus(400);
   }
 });
 
@@ -60,9 +67,8 @@ router.post('/login', async (req, res) => {
       req.session.userId = result.id;
       return res.json(result);
     }
-    throw Error(result);
   } catch (error) {
-    return res.json(error);
+    return res.sendStatus(400);
   }
 });
 

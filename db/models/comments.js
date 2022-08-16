@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     books_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     descr: DataTypes.STRING,
+    rating: DataTypes.INTEGER,
     image: DataTypes.STRING
   }, {
     sequelize,

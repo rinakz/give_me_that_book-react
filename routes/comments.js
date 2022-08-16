@@ -3,7 +3,7 @@ const { Books, User, Bookings, Comments } = require('../db/models');
 const upload = require('../middlewares/multer')
 
 router.post('/', upload.single('image'), async (req, res) => {
-  const { books_id, descr } = req.body;
+  const { books_id, descr, rating } = req.body;
   console.log(req.body);
   try {
     if (req.session.userId) {
@@ -13,6 +13,7 @@ router.post('/', upload.single('image'), async (req, res) => {
         books_id,
         user_id: userId,
         descr,
+        rating,
         image: req.file?.path.replace('public', ''),
       });
     }

@@ -25,6 +25,9 @@ module.exports = {
       descr: {
         type: Sequelize.STRING
       },
+      rating: {
+        type: Sequelize.INTEGER
+      },
       image: {
         type: Sequelize.STRING
       },

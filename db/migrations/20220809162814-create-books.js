@@ -23,9 +23,6 @@ module.exports = {
       genre: {
         type: Sequelize.STRING
       },
-      rating: {
-        type: Sequelize.INTEGER
-      },
       user_id: {
         type: Sequelize.INTEGER,
         references: {

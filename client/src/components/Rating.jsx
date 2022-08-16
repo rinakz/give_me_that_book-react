@@ -1,26 +1,57 @@
+import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllBookings } from '../Redux/action'
+import { Link } from 'react-router-dom';
 
 function Rating() {
-  const dispatch = useDispatch()
-  
-  const { authuser } = useSelector(s => s)
-  const { bookings } = useSelector (s => s)
 
-  const [update, setUpdate] = useState(true)
+  const [rating, setRating] = useState([])
+  const [rating2, setRating2] = useState([])
 
   useEffect(() => {
-    dispatch(getAllBookings())
-  }, [update])
+    axios('/allusers').then(res => setRating(res.data.sort((a,b) => b.Books.length - a.Books.length)))
+  }, [])
+
+  useEffect(() => {
+    axios('/allusers').then(res => setRating2(res.data.sort((a,b) => b.Bookings.length - a.Bookings.length)))
+  }, [])
 
   return (
     <div className='ratingContain'>
-      <div>
-        <h1>Топ владельцев</h1>
+      <div className='ratingOwners'>
+        <thead>
+          <tr>
+            <td></td>
+            <th>Топ владельцев</th>
+            <th>Книги</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rating.map((el, i) => 
+          <tr key={el.id}>
+            <td>{i + 1}</td>
+            <td className='ratingTd'><img src={el.image}></img><Link to={ `/userpage/${ el.id }` }>{el.name}</Link></td>
+            <td>{el.Books.length}</td>
+          </tr>
+          )}
+        </tbody>
       </div>
-      <div>
-        <h1>Топ читателей</h1>
+      <div className='ratingReaders'>
+      <thead>
+          <tr>
+            <td></td>
+            <th>Топ читателей</th>
+            <th>Книги</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rating2.map((el, i) => 
+          <tr key={el.id}>
+            <td>{i + 1}</td>
+            <td className='ratingTd'><img src={el.image}></img><Link to={ `/userpage/${ el.id }` }>{el.name}</Link></td>
+            <td>{el.Bookings.length}</td>
+          </tr>
+          )}
+        </tbody>
       </div>
     </div>
   )

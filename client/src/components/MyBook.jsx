@@ -5,19 +5,23 @@ import { Link } from 'react-router-dom';
 
 function MyBook() {
 
-const dispatch = useDispatch()
-
 const { books } = useSelector(s => s)
 const { authuser } = useSelector(s => s)
+const { bookings } = useSelector(s => s)
+
 const [nameBook, setNameBook] = useState('')
 const [author, setAuthor] = useState('')
 const [descr, setDescr] = useState('')
 const [genre, setGenre] = useState('')
 const [img, setImg] = useState(null)
 const [update, setUpdate] = useState(true)
+
+const dispatch = useDispatch()
+
 useEffect(() => {
   dispatch(getAllBooks())
 }, [update])
+
 
 const handleSubmit = (e) => {
   e.preventDefault()
@@ -79,12 +83,16 @@ const handleSubmit = (e) => {
       </form> 
       <div className='allMyBooks'>
         { books.filter(el => el.user_id == authuser.id).length > 0 ? books.sort((a, b) => b.id - a.id).filter(el => el.user_id == authuser.id).map(el => <div key={el.id} className='myBook'>
-          <div className='thisBook'>
+          <div className='mainBooks'>
+            <button onClick={() => dispatch(deleteBooks(el.id))}>удалить книгу</button>
             <Link to={ `/bookpage/${ el.id }` }>
-            <div>{el.image && <img className='bookImg' src={el.image} alt="img" />}</div>
+            {el.image && <img className='bookImg' src={el.image} alt="img" />}
+              <div className='endBookItems'>
             <h1>{el.name}</h1>
-            <h2>{el.author} <button onClick={() => dispatch(deleteBooks(el.id))}>x</button></h2> 
-            </Link></div>
+            <h2>{el.author}</h2> 
+          </div>
+          </Link>
+          </div>
         </div> ) :
         <p>библиотека пуста :(</p>
         }

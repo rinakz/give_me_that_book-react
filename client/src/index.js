@@ -11,13 +11,14 @@ import My from './components/My';
 import MyBook from './components/MyBook';
 import Rating from './components/Rating';
 import BookPage from './components/BookPage';
+import User from './components/User';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <BrowserRouter>
     <Provider store={store}>
       <Navbar/>
-    <Routes>
+      <Routes>
         <Route path='/' element={<Main />}/>
         <Route path='/login' element={<Login />}/>
         <Route path='/register' element={<Login />}/>
@@ -25,7 +26,8 @@ root.render(
         <Route path='/mybook' element={<MyBook />}/>
         <Route path='/rating' element={<Rating />}/>
         <Route path='/bookpage/:id' element={<BookPage />}/>
-    </Routes>
+        <Route path='/userpage/:id' element={<User />}/>
+      </Routes>
     </Provider>
   </BrowserRouter> 
 );
