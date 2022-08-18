@@ -71,7 +71,8 @@ function BookPage() {
   return (
     <div className='bookPageContain'>
       {books.filter(el => el.id == id).map(el => 
-      <div key={el.id} className='bookInPage'>
+      <div key={el.id} >
+      <div className='bookInPage'>
         <div className='bookInPageImg'>
           <img src={el.image}/>
         </div>
@@ -117,6 +118,7 @@ function BookPage() {
             </h4>
           </div>
         </div>
+        </div>
         {authuser && <div className='bookComment'>
           <h2>Оставь свой отзыв</h2>
           <h4>Твоя оценка:</h4>
@@ -150,8 +152,8 @@ function BookPage() {
           {comments.filter(el => el.books_id == id).length > 0 ? 
           comments.filter(el => el.books_id == id).sort((a, b) => b.id - a.id).map(el =>
             <div key={el.id} className='userComment'>
-              <p>{el.rating}</p>
-              <h3>{el.User.name}:</h3>
+              <p className='userStar'>{el.rating}</p>
+              <h3><Link to={ `/userpage/${ el.user_id }` }>{el.User.name}</Link>:</h3>
               <h4>{el.descr}</h4>
               <img src={el.image}/>
               <p className='dateComment'>{el.createdAt.slice(0,10)}</p>

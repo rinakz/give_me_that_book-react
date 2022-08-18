@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getAllBooks } from '../Redux/action';
 
 function Main() {
+
+  const [search, setSearch] = useState('')
 
   const dispatch = useDispatch()
   const { books } = useSelector(s => s)
@@ -22,10 +24,20 @@ function Main() {
   return (
     <div className='searchBook'>
       <h2>Эти <span>книги</span> ждут тебя</h2>
+      <input 
+        className='bookSearchInput'
+        type={"search"}
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        placeholder='книга или автор'
+      />
       {loading && <div className="lds-ripple"><div></div><div></div></div>}
       {!loading &&
       <div className='mainContain'>
-      { books.length > 0 ? books.map(el => <div key={el.id}>
+      { books.length > 0 ? books.filter(el => search ? 
+          (el.name.toLowerCase().includes(search.toLowerCase()) || 
+          el.author.toLowerCase().includes(search.toLowerCase())) :
+          true).map(el => <div key={el.id}>
         <Link to={ `/bookpage/${ el.id }` }>
           <div className='mainBooks'>
           <div className='firstBookItems'>

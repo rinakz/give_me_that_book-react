@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBooks, getAllBooks } from '../Redux/action';
+import { deleteBooks, getAllBooks, getAllBooksApi } from '../Redux/action';
 import { Link } from 'react-router-dom';
 
 function MyBook() {
@@ -8,6 +8,7 @@ function MyBook() {
 const { books } = useSelector(s => s)
 const { authuser } = useSelector(s => s)
 const { bookings } = useSelector(s => s)
+const { booksapi } = useSelector(s => s)
 
 const [nameBook, setNameBook] = useState('')
 const [author, setAuthor] = useState('')
@@ -37,10 +38,13 @@ const handleSubmit = (e) => {
   }).then(res => {console.log(res); setNameBook(''); setAuthor(''); setDescr(''); setGenre(''); setUpdate(prev => !prev)})
 }
 
+
+
   return (  
     <div className='myBookContainer'>
       <form onSubmit={handleSubmit}>
         <h2>Загрузить новую книгу</h2>
+
         <input
         placeholder='Название книги'
         type="text"

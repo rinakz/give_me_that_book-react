@@ -31,9 +31,21 @@ input[type="password"] {
   color: white;
 }
 
+input[type="search"] {
+  color: white;
+  }
+
+button {
+  cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+}
+
 
 .navMain {
-  display: flex !important;
+  display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #5A5560;
@@ -43,6 +55,14 @@ input[type="password"] {
 
 .navMain span {
   color: #FAED26;
+}
+.navMain span:hover {
+  text-shadow: 1px 0px 20px #ffd200;
+  -webkit-transition: 1s linear 0s;
+  -moz-transition: 1s linear 0s;
+  -o-transition: 1s linear 0s;
+  transition: 1s linear 0s;
+  outline: 0 none;
 }
 
 .navMain a {
@@ -92,6 +112,21 @@ input[type="password"] {
   color: #FAED26;
 }
 
+.bookSearchInput {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  display: block;
+  font-weight: 280;
+  font-size: 18px;
+  width: 300px;
+  border-bottom: 1px solid #FAED26;
+  padding: 10px 0px 0 0px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
 .searchBook {
   background: linear-gradient( rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8) ), url('/public/main.jpeg');
   z-index: 5;
@@ -99,7 +134,10 @@ input[type="password"] {
   border-bottom: 2px solid #5A5560;
   font-size: 20px;
   padding: 20px;
-  text-align: center
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .searchBook h2 {
@@ -130,6 +168,11 @@ input[type="password"] {
   position: relative;
   }
 
+  @keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
+
   .mainBooks::before {
     background: linear-gradient(180deg,rgba(46,48,55,0) 24%,rgba(0, 0, 0, 0.5) 54.87%,rgba(0, 0, 0, 0.85) 89.71%);
     content: "";
@@ -141,9 +184,11 @@ input[type="password"] {
     width: 100%;
   }
 
-  @keyframes ani {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+  .mainBooks:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: 0.3s;
   }
 
   .mainBooks:hover::before {
@@ -158,14 +203,6 @@ input[type="password"] {
   width: 260px;
   object-fit: cover;
 }
-
-/* .firstBookItems {
-  bottom: 0;
-  left: 0;
-  padding: 30px;
-  position: absolute;
-  z-index: 10;
-} */
 
 .endBookItems {
   width: 100%;
@@ -298,9 +335,17 @@ input[type="password"] {
 }
 
 .userName img {
-  width: 350px;
-  max-height: 450px;
-}
+  width: 300px;
+  max-height: 400px;
+  transform: translateX(150%);
+  animation: right 1s forwards;
+  position: relative;
+  }
+
+  @keyframes right {
+    0% {transform: translateX(150%);}
+  100% {transform: translateY(0);}
+  }
 
 .userName h1 {
   margin: 0;
@@ -536,12 +581,20 @@ input[type="password"] {
   padding: 0 20px 20px 20px;
   display: flex;
   justify-content: center;
-}
+  transform: translateX(-150%);
+  animation: left 1s forwards;
+  position: relative;
+  }
+
+  @keyframes left {
+    0% {transform: translateX(-150%);}
+  100% {transform: translateY(0);}
+  }
+
 
 .bookInPageImg img {
-  max-height: 500px;
-  width: auto;
-  max-width: 500px;
+  height: 400px;
+  width: 300px;
 }
 
 .bookBooking {
@@ -555,15 +608,15 @@ input[type="password"] {
 }
 
 .windBooking {
-  display: flex !important;
+  display: flex;
   flex-direction: column;
 }
 
 .bookInPageDescr {
 padding-left: 30px;
 display: flex;
-justify-content: space-between;
 flex-direction: column;
+margin: 0 20px 20px 20px;
 }
 
 .bookInPageDescr h5 {
@@ -747,17 +800,23 @@ flex-direction: column;
 }
 
 .userComment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: rgb(157, 141, 143, 0.1);
   border: 1px solid rgb(255, 255, 255, 0.4);
   width: 500px;
-  padding: 5px;
   margin: 10px;
   color: #FAED26;
 }
 
+.userComment h3 {
+  margin: 0 20px 10px 20px;
+}
+
 .userComment h4 {
   color: white;
-  margin-bottom: 0;
+  margin: 0 20px 0 20px;
 }
 
 .userComment img {
@@ -769,6 +828,15 @@ flex-direction: column;
   font-size: 15px !important;
   color: black !important;
   opacity: 0.5;
+}
+
+.userStar {
+  margin: 10px;
+  padding: 5px 10px 5px 10px;
+  border-radius: 100%;
+  border: 4px solid #FAED26;
+  color: #FAED26 !important;
+  opacity: 0.7;
 }
 
 /* component Rating */

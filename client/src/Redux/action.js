@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN, LOGOUT, GET_ALL_BOOKS, DELETE_BOOKS, GET_ALL_BOOKINGS, DELETE_BOOKINGS, GET_ALL_COMMENTS, DELETE_COMMENTS, GET_ALL_USERS, START, STOP} from "./type";
+import { LOGIN, LOGOUT, GET_ALL_BOOKS, DELETE_BOOKS, GET_ALL_BOOKINGS, DELETE_BOOKINGS, GET_ALL_COMMENTS, DELETE_COMMENTS, GET_ALL_USERS, START, STOP, GET_ALL_BOOKS_API} from "./type";
 
 export const actionLogin = (data) => ({
   type: LOGIN, payload: data
@@ -9,9 +9,7 @@ export const actionLogout = () => ({
 })
 
 export const getAllUsers = () => async (dispatch) => {
-  dispatch({type:START})
   const response = await axios('/allusers')
-  dispatch({type: STOP})
   dispatch({type: GET_ALL_USERS, payload: response.data});
 }
 
@@ -50,3 +48,8 @@ export const deleteComments = (id) => async (dispatch) => {
   const response = await axios.delete(`/comments/${id}`)
   dispatch({type: DELETE_COMMENTS, payload: id})
 }
+
+// export const getAllBooksApi = () => async (dispatch) => {
+//   const response = await axios('https://www.googleapis.com/books/v1/volumes?q=isbn:0735619670')
+//   dispatch({type: GET_ALL_BOOKS_API, payload: response.data});
+// }

@@ -5,6 +5,7 @@ import { bookingsReducer } from './bookingReducer'
 import { commentReducer } from './commentReducer'
 import { usersReducer } from './usersReducer'
 import { loadingReducer } from './loadingReducer'
+import { booksApiReducer } from './booksApiReducer'
 
 
 
@@ -14,5 +15,6 @@ export const rootReducer = combineReducers({
   authuser: authuserReducer,
   comments: commentReducer,
   users: usersReducer,
-  loading:loadingReducer
+  loading:loadingReducer,
+  booksapi:booksApiReducer,
 })
