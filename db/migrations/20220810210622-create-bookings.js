@@ -28,6 +28,10 @@ module.exports = {
       returndate: {
         type: Sequelize.DATE
       },
+      status: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

@@ -20,7 +20,7 @@ input:-webkit-autofill:active {
 }
 
 input[type="text"] {
-color: white;
+  color: white;
 }
 
 input[type="email"] {
@@ -33,7 +33,7 @@ input[type="password"] {
 
 input[type="search"] {
   color: white;
-  }
+}
 
 button {
   cursor: pointer;
@@ -56,6 +56,7 @@ a {
 .navMain span {
   color: #FAED26;
 }
+
 .navMain span:hover {
   text-shadow: 1px 0px 20px #ffd200;
   -webkit-transition: 1s linear 0s;
@@ -128,7 +129,7 @@ a {
 }
 
 .searchBook {
-  background: linear-gradient( rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8) ), url('/public/main.jpeg');
+  background: linear-gradient(rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8)), url('/public/main.jpeg');
   z-index: 5;
   background-size: cover;
   border-bottom: 2px solid #5A5560;
@@ -166,33 +167,38 @@ a {
   opacity: 0;
   animation: ani 2.5s forwards;
   position: relative;
+}
+
+@keyframes ani {
+  0% {
+    opacity: 0;
   }
 
-  @keyframes ani {
-    0% {opacity: 0;}
-    100% {opacity: 1;}
+  100% {
+    opacity: 1;
   }
+}
 
-  .mainBooks::before {
-    background: linear-gradient(180deg,rgba(46,48,55,0) 24%,rgba(0, 0, 0, 0.5) 54.87%,rgba(0, 0, 0, 0.85) 89.71%);
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    transition: background .2s ease-out;
-    width: 100%;
-  }
+.mainBooks::before {
+  background: linear-gradient(180deg, rgba(46, 48, 55, 0) 24%, rgba(0, 0, 0, 0.5) 54.87%, rgba(0, 0, 0, 0.85) 89.71%);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transition: background .2s ease-out;
+  width: 100%;
+}
 
-  .mainBooks:hover {
-    -webkit-transform: scale(1.1);
-    -ms-transform: scale(1.1);
-    transform: scale(1.1);
-    transition: 0.3s;
-  }
+.mainBooks:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+  transition: 0.3s;
+}
 
-  .mainBooks:hover::before {
-  background: linear-gradient(180deg,rgba(46,48,55,0) 24%, rgba(70, 52, 78, .5) 54.87%,rgba(70, 52, 78,.5) 89.71%);
+.mainBooks:hover::before {
+  background: linear-gradient(180deg, rgba(46, 48, 55, 0) 24%, rgba(70, 52, 78, .5) 54.87%, rgba(70, 52, 78, .5) 89.71%);
   transition: 0.3s;
 }
 
@@ -245,7 +251,7 @@ a {
 /* component Login */
 
 .loginContainer {
-  background: linear-gradient( rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8) ), url('/public/book.jpeg');
+  background: linear-gradient(rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8)), url('/public/book.jpeg');
   z-index: 5;
   background-size: cover;
   border-bottom: 2px solid #5A5560;
@@ -302,7 +308,7 @@ a {
   border-radius: 100px;
 }
 
-.authForm button:hover{
+.authForm button:hover {
   background: white;
   color: #46344E;
   opacity: 0.5;
@@ -317,7 +323,7 @@ a {
 /* component My */
 
 .lkContainer {
-  background: linear-gradient( rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8) ), url('/public/lk.jpeg');
+  background: linear-gradient(rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8)), url('/public/lk.jpeg');
   z-index: 5;
   background-size: cover;
   border-bottom: 2px solid #5A5560;
@@ -337,15 +343,21 @@ a {
 .userName img {
   width: 300px;
   max-height: 400px;
-  transform: translateX(150%);
-  animation: right 1s forwards;
+  animation: right ease-in-out 1s forwards;
   position: relative;
+}
+
+@keyframes right {
+  from {
+    opacity: 0;
+    border-radius: 50%;
   }
 
-  @keyframes right {
-    0% {transform: translateX(150%);}
-  100% {transform: translateY(0);}
+  to {
+    opacity: 1;
+    border-radius: 15px;
   }
+}
 
 .userName h1 {
   margin: 0;
@@ -361,7 +373,7 @@ a {
   flex-wrap: wrap;
 }
 
-.myBooking > .mainBooks {
+.myBooking>.mainBooks {
   justify-content: flex-start;
   height: 370px;
   align-items: center;
@@ -378,8 +390,8 @@ a {
   font-size: 13px;
   border-radius: 100px;
 }
-  
-.myBooking button:hover{
+
+.myBooking button:hover {
   background: white;
   color: #46344E;
   opacity: 0.5;
@@ -406,7 +418,7 @@ a {
   text-align: center;
 }
 
-.userName button{
+.userName button {
   margin-top: 30px;
   margin-bottom: 30px;
   background-color: transparent;
@@ -417,7 +429,7 @@ a {
   border-radius: 100px;
 }
 
-.userName button:hover{
+.userName button:hover {
   background: #9D8D8F;
   color: #46344E;
   opacity: 0.5;
@@ -433,7 +445,7 @@ a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  background: linear-gradient( rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8) ), url('/public/myBook.jpeg');
+  background: linear-gradient(rgba(70, 52, 78, 0.7), rgba(70, 52, 78, 0.8)), url('/public/myBook.jpeg');
   z-index: 5;
   background-size: cover;
   border-bottom: 2px solid #5A5560;
@@ -465,7 +477,7 @@ a {
   text-align: center;
 }
 
-.bookBtn{
+.bookBtn {
   margin-top: 30px;
   margin-bottom: 30px;
   background-color: transparent;
@@ -476,7 +488,7 @@ a {
   border-radius: 100px;
 }
 
-.myBookContainer button:hover{
+.myBookContainer button:hover {
   background: #9D8D8F;
   color: #46344E;
   opacity: 0.5;
@@ -553,8 +565,8 @@ a {
   border-radius: 100px;
   opacity: 0.5;
 }
-    
-.allMyBooks button:hover{
+
+.allMyBooks button:hover {
   background: white;
   color: #46344E;
   opacity: 0.5;
@@ -564,11 +576,12 @@ a {
 /* component BookPage */
 
 .bookPageContain {
-  background: linear-gradient( rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8) ), url('/public/main.jpeg');
+  background: linear-gradient(rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8)), url('/public/main.jpeg');
   z-index: 5;
   background-size: cover;
   border-bottom: 2px solid #5A5560;
 }
+
 .bookInPage {
   padding-top: 50px;
   display: flex;
@@ -584,12 +597,17 @@ a {
   transform: translateX(-150%);
   animation: left 1s forwards;
   position: relative;
+}
+
+@keyframes left {
+  0% {
+    transform: translateX(-150%);
   }
 
-  @keyframes left {
-    0% {transform: translateX(-150%);}
-  100% {transform: translateY(0);}
+  100% {
+    transform: translateY(0);
   }
+}
 
 
 .bookInPageImg img {
@@ -613,10 +631,10 @@ a {
 }
 
 .bookInPageDescr {
-padding-left: 30px;
-display: flex;
-flex-direction: column;
-margin: 0 20px 20px 20px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px 20px 20px;
 }
 
 .bookInPageDescr h5 {
@@ -693,7 +711,7 @@ margin: 0 20px 20px 20px;
   text-align: center;
 }
 
-.formBooking button{
+.formBooking button {
   margin-top: 5px;
   margin-bottom: 10px;
   background-color: transparent;
@@ -704,7 +722,7 @@ margin: 0 20px 20px 20px;
   border-radius: 100px;
 }
 
-.formBooking button:hover{
+.formBooking button:hover {
   background: #9D8D8F;
   color: #46344E;
   opacity: 0.5;
@@ -747,7 +765,7 @@ margin: 0 20px 20px 20px;
   box-shadow: none;
   outline: none;
   display: block;
-  padding: 20px 0 0 0 ;
+  padding: 20px 0 0 0;
   font-size: 25px;
   border-bottom: 1px solid #FAED26;
   text-align: center;
@@ -764,7 +782,7 @@ margin: 0 20px 20px 20px;
   border-radius: 100px;
 }
 
-.formComment button:hover{
+.formComment button:hover {
   background: #9D8D8F;
   color: #46344E;
   opacity: 0.5;
@@ -787,14 +805,14 @@ margin: 0 20px 20px 20px;
 }
 
 .stars p:hover {
-  box-shadow:0 0 10px #9D8D8F;
+  box-shadow: 0 0 10px #9D8D8F;
   background-color: #FAED26;
   color: #46344E !important;
   transition: 0.3s;
 }
 
 .stars .voted {
-  box-shadow:0 0 10px #9D8D8F;
+  box-shadow: 0 0 10px #9D8D8F;
   background-color: #FAED26;
   color: #46344E !important;
 }
@@ -845,7 +863,7 @@ margin: 0 20px 20px 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  background: linear-gradient( rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8) ), url('/public/my.jpeg');
+  background: linear-gradient(rgba(70, 52, 78, 0.8), rgba(70, 52, 78, 0.8)), url('/public/my.jpeg');
   z-index: 5;
   background-size: cover;
   border-bottom: 2px solid #5A5560;
@@ -908,6 +926,7 @@ margin: 0 20px 20px 20px;
   width: 80px;
   height: 80px;
 }
+
 .lds-ripple div {
   position: absolute;
   border: 4px solid #fff;
@@ -915,9 +934,11 @@ margin: 0 20px 20px 20px;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
+
 .lds-ripple div:nth-child(2) {
   animation-delay: -0.5s;
 }
+
 @keyframes lds-ripple {
   0% {
     top: 36px;
@@ -926,6 +947,7 @@ margin: 0 20px 20px 20px;
     height: 0;
     opacity: 0;
   }
+
   4.9% {
     top: 36px;
     left: 36px;
@@ -933,6 +955,7 @@ margin: 0 20px 20px 20px;
     height: 0;
     opacity: 0;
   }
+
   5% {
     top: 36px;
     left: 36px;
@@ -940,6 +963,7 @@ margin: 0 20px 20px 20px;
     height: 0;
     opacity: 1;
   }
+
   100% {
     top: 0px;
     left: 0px;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteBookings, getAllBookings, getAllBooks, getAllUsers } from '../Redux/action';
+import { actionLogin, deleteBookings, getAllBookings, getAllBooks, getAllUsers } from '../Redux/action';
 import { Link } from 'react-router-dom';
 
 
@@ -32,9 +32,9 @@ function My() {
     return image ? image : imageDefault
   }
 
-  const myBookFilter = bookings.filter(el => el.user_id == authuser.id)
+  const myBookFilter = bookings.filter(el => el.user_id == authuser?.id)
 
-  console.log(bookings.filter(el => el.user_id == authuser.id))
+  console.log(bookings.filter(el => el.user_id == authuser?.id))
 
   const handleSubmitProfile = (e) => {
     e.preventDefault()
@@ -44,7 +44,8 @@ function My() {
     fetch(`/${editProfile}`, {
       method: 'put',
       body: data
-    }).then(res => {console.log(res); setName(''); setEditProfile(false); setUpdate(prev => !prev)})
+    }).then(() => fetch('/check')).then((res) => res.json()).then((res) => dispatch(actionLogin(res)))
+      .finally(() => {setName(''); setEditProfile(false); setUpdate(prev => !prev)})
   }
 
 
@@ -58,13 +59,13 @@ function My() {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            / >
+            />
             <label>
             <input className='hideInput'
             type="file"
             name="image"
             onChange={(e) => setImg(e.target.files[0])}
-            / >
+            />
             <div className='addFile'>добавить фото</div>
             </label>
             <div className="send">
@@ -77,14 +78,14 @@ function My() {
             </form> :
             true && 
             <div>
-              <h1>{authuser.name}</h1>
+              <h1>{authuser?.name}</h1>
               <button className='editProfileBtn' onClick={() => {
-              setEditProfile(authuser.id); 
-              setName(authuser.name)}}>
+              setEditProfile(authuser?.id); 
+              setName(authuser?.name)}}>
               Редактировать
               </button>
             </div>}
-            <img src={`${userImage(authuser.image)}`}></img>
+            <img src={`${userImage(authuser?.image)}`}></img>
       </div>
       <div>
         <div className='iRead'>
@@ -95,7 +96,7 @@ function My() {
           }
         </div>
         <div className='myBooking'>
-      {bookings.filter(el => el.user_id == authuser.id).map(el => 
+      {bookings.filter(el => el.user_id == authuser?.id).map(el => 
       <div key={el.id} className='mainBooks'>
           <Link to={ `/bookpage/${ el.books_id }` }>
           {el.Book.image && <img className='bookImg' src={el.Book.image} alt="img" />}

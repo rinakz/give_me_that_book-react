@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     books_id: DataTypes.INTEGER,
     user_id: DataTypes.INTEGER,
     date: DataTypes.DATE,
-    returndate: DataTypes.DATE
+    returndate: DataTypes.DATE,
+    status: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Bookings',

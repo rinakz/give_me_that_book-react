@@ -84,8 +84,8 @@ router.put('/:id',upload.single('image'), async (req, res) => {
         name,
         image: req.file?.path.replace('public', ''),
       }, {where: {id: req.params.id} });
+      console.log(result);
     }
-
     res.sendStatus(200);
   } catch (err) {
     console.log(err);
