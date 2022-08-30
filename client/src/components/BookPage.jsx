@@ -89,7 +89,11 @@ function BookPage() {
             <h5>Владелец книги: <span><Link to={ `/userpage/${ el.user_id }` }>{el.User.name}</Link></span></h5>
           </div>
           <div className='windBooking'>
-            <h4>Статус книги: {bookings.filter(el => el.books_id == id).length > 0 ? <p>забронирована до {bookings.filter(el => el.books_id == id).map(el => el.returndate.slice(0,10))}</p> 
+            <h4>Статус книги: {bookings.filter(el => el.books_id == id).length > 0 ?
+            (<> {bookings.filter(el => el.books_id == id)[0].status ?
+              <p>забронирована до {bookings.filter(el => el.books_id == id).map(el => el.returndate.slice(0,10))}</p> :
+              <p>Ожидает подтверждения</p>
+            }</>)
             : 
             <div>
             <p>доступна</p> 

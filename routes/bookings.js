@@ -41,4 +41,14 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+router.put('/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Bookings.update({status: true}, {where: { id }})
+    res.sendStatus(200);
+  } catch (err) {
+    console.log(err);
+  }
+})
+
 module.exports = router;
