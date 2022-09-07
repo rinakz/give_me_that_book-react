@@ -338,6 +338,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  max-width: 450px;
 }
 
 .userName img {
@@ -375,7 +376,7 @@ a {
 
 .myBooking>.mainBooks {
   justify-content: flex-start;
-  height: 370px;
+  height: 400px;
   align-items: center;
   margin: 10px;
 }
@@ -419,7 +420,6 @@ a {
 }
 
 .userName button {
-  margin-top: 30px;
   margin-bottom: 30px;
   background-color: transparent;
   border: 1px solid #9D8D8F;
@@ -434,6 +434,10 @@ a {
   color: #46344E;
   opacity: 0.5;
   transition: 0.3s;
+}
+
+.userName h3 {
+  color: white;
 }
 
 
@@ -571,6 +575,11 @@ a {
   color: #46344E;
   opacity: 0.5;
   transition: 0.3s;
+}
+
+.statusBooks {
+  display: flex;
+  flex-direction: row;
 }
 
 /* component BookPage */
@@ -815,6 +824,15 @@ a {
   box-shadow: 0 0 10px #9D8D8F;
   background-color: #FAED26;
   color: #46344E !important;
+}
+
+.stars input[type=radio] {
+	/* display: none; */
+}
+
+.stars {
+  display: flex;
+  flex-direction: row;
 }
 
 .userComment {

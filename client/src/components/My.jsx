@@ -13,6 +13,7 @@ function My() {
   const [editProfile, setEditProfile] = useState(false)
   const [img, setImg] = useState(null)
   const [name, setName] = useState('')
+  const [contact, setContact] = useState('')
 
   const dispatch = useDispatch()
 
@@ -25,6 +26,7 @@ function My() {
   }, [])
   
   const { bookings } = useSelector (s => s)
+  const { books } = useSelector (s => s)
 
   
   function userImage (image) {
@@ -34,12 +36,13 @@ function My() {
 
   const myBookFilter = bookings.filter(el => el.user_id == authuser?.id)
 
-  console.log(bookings.filter(el => el.user_id == authuser?.id))
+  // console.log(bookings.filter(el => el.user_id == authuser?.id))
 
   const handleSubmitProfile = (e) => {
     e.preventDefault()
     const data = new FormData()
     data.append('name', name)
+    data.append('contact', contact)
     data.append('image', img)
     fetch(`/${editProfile}`, {
       method: 'put',
@@ -60,6 +63,12 @@ function My() {
             value={name}
             onChange={(e) => setName(e.target.value)}
             />
+            <input
+            type="text"
+            name="contact"
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
+            />
             <label>
             <input className='hideInput'
             type="file"
@@ -79,6 +88,7 @@ function My() {
             true && 
             <div>
               <h1>{authuser?.name}</h1>
+              <h3> Мои контакты: {authuser?.contact}</h3>
               <button className='editProfileBtn' onClick={() => {
               setEditProfile(authuser?.id); 
               setName(authuser?.name)}}>
@@ -98,6 +108,7 @@ function My() {
         <div className='myBooking'>
       {bookings.filter(el => el.user_id == authuser?.id).map(el => 
       <div key={el.id} className='mainBooks'>
+        {el.status ? <p>Связаться: {books.filter(elem => elem.id == el.books_id).map(elem => elem.User.contact)}</p> : <p>ожидает подтверждения</p>}
           <Link to={ `/bookpage/${ el.books_id }` }>
           {el.Book.image && <img className='bookImg' src={el.Book.image} alt="img" />}
           <div className='endBookItems'>

@@ -37,11 +37,12 @@ router.get('/allusers', async (req, res) => {
 
 router.post('/register', upload.single('image'), async (req, res) => {
   try {
-    const { email, password, name } = req.body;
+    const { email, password, contact, name } = req.body;
     console.log(req.body);
     const result = await User.create({
       email,
       name,
+      contact,
       image: req.file?.path.replace('public', ''),
       password: await bcrypt.hash(password, +process.env.SALTROUNDS),
     });
@@ -74,7 +75,7 @@ router.post('/login', async (req, res) => {
 
 
 router.put('/:id',upload.single('image'), async (req, res) => {
-  const { name } = req.body;
+  const { name, contact } = req.body;
   console.log(req.body);
   try {
     if (req.session.userId) {
@@ -82,6 +83,7 @@ router.put('/:id',upload.single('image'), async (req, res) => {
       console.log('>>>', userId);
       const result = await User.update({
         name,
+        contact,
         image: req.file?.path.replace('public', ''),
       }, {where: {id: req.params.id} });
       console.log(result);

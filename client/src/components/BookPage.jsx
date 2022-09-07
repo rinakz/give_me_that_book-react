@@ -127,14 +127,22 @@ function BookPage() {
           <h2>Оставь свой отзыв</h2>
           <h4>Твоя оценка:</h4>
           <div className='stars'>
-          {rateArr.map(el =>
-          <p onClick={(e) => {
-            e.target.classList.toggle('voted')
-            setcurRate(e.target.textContent);
-          }}>{el}</p>
-          )}
-          </div>
+          {/* // <p onClick={(e) => { */}
+          {/* //   e.target.classList.toggle('voted')
+          //   setcurRate(e.target.textContent);
+          // }}>{el}</p> */}
           <form className='formComment' onSubmit={handleComment}>
+            {rateArr.map(el =>
+            <label>
+            <input 
+            type='radio'
+            value={el}
+            name='star'
+            onChange={(e) => setcurRate(e.target.value)}
+            />
+            {el}
+            </label>
+            )}
             <input 
             placeholder='...'
             type='text'
@@ -152,6 +160,7 @@ function BookPage() {
             </label>
             <button type="submit" onClick={()=>{setBookId(el.id)}}>Отправить</button>
           </form>
+          </div>
           <h1>Отзывы других читателей</h1>
           {comments.filter(el => el.books_id == id).length > 0 ? 
           comments.filter(el => el.books_id == id).sort((a, b) => b.id - a.id).map(el =>

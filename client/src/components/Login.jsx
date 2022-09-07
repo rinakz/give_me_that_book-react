@@ -75,7 +75,7 @@ const Login = () => {
                 name="name"
                 value={form.name || ''}
                 onChange={handleChange}
-              ></input>
+              />
             </p>
             <p type="Email:">
               Введи E-mail:
@@ -84,7 +84,7 @@ const Login = () => {
                 name="email"
                 value={form.email || ''}
                 onChange={handleChange}
-              ></input>
+              />
             </p>
             <p type="Password:">
               Придумай пароль:
@@ -93,7 +93,16 @@ const Login = () => {
                 name="password"
                 value={form.password || ''}
                 onChange={handleChange}
-              ></input>
+              />
+            </p>
+            <p type="Contact:">
+              Контакт для связи:
+              <input
+                type="text"
+                name="contact"
+                value={form.contact || ''}
+                onChange={handleChange}
+              />
             </p>
             <div className="authBtns">
               <button type="submit">Зарегистрироваться</button>
@@ -113,7 +122,7 @@ const Login = () => {
                 name="email"
                 value={form.email || ''}
                 onChange={handleChange}
-              ></input>
+              />
             </p>
             <p type="Password:">
               Введи Пароль:
@@ -122,7 +131,7 @@ const Login = () => {
                 name="password"
                 value={form.password || ''}
                 onChange={handleChange}
-              ></input>
+              />
             </p>
             <div className="authBtns">
               <button type="submit">Войти</button>

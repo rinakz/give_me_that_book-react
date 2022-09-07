@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { acceptBooking, deleteBookings, deleteBooks, getAllBookings, getAllBooks, getAllBooksApi } from '../Redux/action';
+import { acceptBooking, deleteBookings, deleteBooks, getAllBookings, getAllBooks } from '../Redux/action';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useRef } from 'react';
@@ -137,12 +137,18 @@ console.log(bookings);
         { books.filter(el => el.user_id == authuser.id).length > 0 ? books.sort((a, b) => b.id - a.id).filter(el => el.user_id == authuser.id).map(el => <div key={el.id} className='myBook'>
           <div className='mainBooks'>
             {!el.Bookings.length && <button onClick={() => dispatch(deleteBooks(el.id))}>удалить книгу</button>}
-            {el.Bookings.length ? !el.Bookings[0].status && <button onClick={() => {
+            {el.Bookings.length ? !el.Bookings[0].status && 
+            <div className='statusBooks'>
+              <p><Link to={ `/userpage/${ bookings?.filter(elem => elem.books_id == el.id)[0]?.User?.id }` }>{bookings?.filter(elem => elem.books_id == el.id)[0]?.User?.name}</Link> Хочет забронировать</p>
+            <button onClick={() => {
               dispatch(acceptBooking(el.Bookings[0].id));
               setUpdate(prev => !prev)
-              }}>Подтвердить для {bookings?.filter(elem => elem.books_id == el.id)[0]?.User?.name}</button> : true}
-            {el.Bookings[0]?.status && <p>Забронирована пользователем {bookings?.filter(elem => elem.books_id == el.id)[0]?.User?.name}</p>}
-            {el.Bookings[0]?.status && <button onClick={() => {dispatch(deleteBookings(el.id)); setUpdate(prev => !prev)}}>Отменить бронирование</button>}
+              }}>Подтвердить</button>
+            </div> : true}
+            <div className='statusBooks'>
+            {el.Bookings[0]?.status && <p>Забронирована <Link to={ `/userpage/${ bookings?.filter(elem => elem.books_id == el.id)[0]?.User?.id }` }>{bookings?.filter(elem => elem.books_id == el.id)[0]?.User?.name}</Link></p>}
+            {el.Bookings[0]?.status && <button onClick={() => {dispatch(deleteBookings(el.id)); setUpdate(prev => !prev)}}>Отменить</button>}
+            </div>
             <Link to={ `/bookpage/${ el.id }` }>
             {el.image && <img className='bookImg' src={el.image} alt="img" />}
               <div className='endBookItems'>

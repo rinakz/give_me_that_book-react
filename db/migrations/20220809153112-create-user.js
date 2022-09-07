@@ -18,6 +18,10 @@ module.exports = {
         type: Sequelize.STRING,
         unique: true,
       },
+      contact: {
+        type: Sequelize.STRING,
+        unique: true,
+      },
       image: {
         type: Sequelize.STRING
       },
