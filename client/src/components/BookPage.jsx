@@ -61,6 +61,7 @@ function BookPage() {
       method: 'post',
       body: data
     }).then(res => {console.log(res); setDescr(''); setUpdate(prev => !prev)})
+    .finally(() => e.target.reset())
   }
 
   const getRating = (el) => {
@@ -132,17 +133,19 @@ function BookPage() {
           //   setcurRate(e.target.textContent);
           // }}>{el}</p> */}
           <form className='formComment' onSubmit={handleComment}>
+          <div className="rateWrapper">
             {rateArr.map(el =>
-            <label>
+            <label className='star'>
             <input 
             type='radio'
             value={el}
             name='star'
             onChange={(e) => setcurRate(e.target.value)}
             />
-            {el}
+            <span data-rating={el}></span>
             </label>
             )}
+          </div>
             <input 
             placeholder='...'
             type='text'
