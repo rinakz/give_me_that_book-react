@@ -88,8 +88,9 @@ a {
 }
 
 .navBook {
+  flex-wrap: wrap;
   text-align: center;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   padding: 10px;
   height: 70px;
@@ -400,6 +401,9 @@ a {
 }
 
 .iRead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
   padding-top: 50px;
   color: #9D8D8F;
@@ -671,7 +675,7 @@ a {
   max-width: 500px;
   padding-bottom: 30px;
   opacity: 0.7;
-  font-size: 18px !important;
+  font-size: 18px;
   border-bottom: 2px solid #9D8D8F;
 
 }
@@ -747,7 +751,7 @@ a {
 
 .bookComment h1 {
   margin: 0 !important;
-  font-size: 35px !important;
+  font-size: 35px;
   max-width: 100% !important;
   color: #9D8D8F;
   border-bottom: 2px solid #9D8D8F;
@@ -826,13 +830,37 @@ a {
   color: #46344E !important;
 }
 
-.stars input[type=radio] {
-	/* display: none; */
+.rateWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
-.stars {
-  display: flex;
-  flex-direction: row;
+.star>input {
+  position: absolute;
+  z-index: -100;
+  opacity: 0;
+}
+
+.star>span::before {
+  content: attr(data-rating);
+  display: inline-block;
+  border: 4px solid #FAED26;
+  padding: 5px 10px 5px 10px;
+  color: #FAED26 !important;
+  border-radius: 50%;
+  opacity: 0.6; 
+  transition: 0.2s ease-in-out;
+}
+
+.star>input:not(:disabled):not(:checked)+span:hover::before {
+  opacity: 1;
+}
+
+.star>input:checked+span::before {
+  opacity: 1;
+  box-shadow: 0 0 20px #FAED26;
 }
 
 .userComment {
@@ -929,6 +957,7 @@ a {
 .booksAndBookings div {
   align-items: center;
   justify-content: center;
+  max-width: 850px;
 }
 
 .userComment a {
@@ -991,35 +1020,118 @@ a {
   }
 }
 
-.rateWrapper {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
+
+@media screen and (max-width: 600px) {
+
+  .navMain {
+    height: 50px;
+  }
+
+  .start {
+    font-size: 15px;
+  }
+
+  .end {
+    font-size: 15px;
+  }
+
+  .navBook {
+    height: 50px;
+  }
+
+  .navBook a {
+    padding: 0 5px 0 5px;
+    font-size: 17px;
+  }
+
+  .authForm input {
+    font-size: 15px;
+    padding-top: 15px;
+  }
+
+  .authForm button {
+    font-size: 15px;
+    margin-top: 15px;
+    margin-bottom: 5px;
 }
 
-.star>input {
-  position: absolute;
-  z-index: -100;
-  opacity: 0;
+  .searchBook h2 {
+    margin: 5px 0 15px 0;
+  }
+
+  .mainBooks {
+    margin: 0 10px 0 10px;
+    width: 230px;
+    height: 350px;
+    margin-bottom: 50px;
+    opacity: 0;
+    animation: ani 2.5s forwards;
+    position: relative;
 }
 
-.star>span::before {
-  content: attr(data-rating);
-  display: inline-block;
-  border: 4px solid #FAED26;
-  padding: 5px 10px 5px 10px;
-  color: #FAED26 !important;
-  border-radius: 50%;
-  opacity: 0.6; 
-  transition: 0.2s ease-in-out;
+  .bookInPageImg img {
+    height: 300px;
+    width: 250px;
+  }
+
+  .bookInPage p {
+    font-size: 15px;
+    margin: 5px;
+  }
+
+  .bookBooking {
+    width: 250px;
+    height: 300px;
+  }
+
+  .userComment {
+    width: 250px;
+    margin: 10px;
 }
 
-.star>input:not(:disabled):not(:checked)+span:hover::before {
-  opacity: 1;
+  h1 {
+    font-size: 18px !important
+  }
+
+  h2 {
+    font-size: 15px !important
+  }
+
+  .ratingContain {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  th {
+    font-size: 20px !important
+  }
+
+  td {
+    font-size: 20px !important
+  }
+
+  .ratingContain th {
+    padding: 10px;
+  }
+
+  .ratingContain td {
+    padding: 10px;
+  }
+
 }
 
-.star>input:checked+span::before {
-  opacity: 1;
-  box-shadow: 0 0 20px #FAED26;
+
+@media screen and (max-width: 900px) {
+
+  .ratingContain {
+    align-items: center;
+  }
+
+  th {
+    font-size: 22px !important
+  }
+
+  td {
+    font-size: 22px !important
+  }
 }
