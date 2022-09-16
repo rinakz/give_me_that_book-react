@@ -1064,9 +1064,11 @@ a {
     width: 230px;
     height: 350px;
     margin-bottom: 50px;
-    opacity: 0;
-    animation: ani 2.5s forwards;
-    position: relative;
+}
+
+.mainBooks img {
+  width: 230px;
+  height: 300px;
 }
 
   .bookInPageImg img {

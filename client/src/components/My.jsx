@@ -48,7 +48,7 @@ function My() {
       method: 'put',
       body: data
     }).then(() => fetch('/check')).then((res) => res.json()).then((res) => dispatch(actionLogin(res)))
-      .finally(() => {setName(''); setEditProfile(false); setUpdate(prev => !prev)})
+      .finally(() => {setName(''); setContact(''); setEditProfile(false); setUpdate(prev => !prev)})
   }
 
 
@@ -91,7 +91,8 @@ function My() {
               <h3> Мои контакты: {authuser?.contact}</h3>
               <button className='editProfileBtn' onClick={() => {
               setEditProfile(authuser?.id); 
-              setName(authuser?.name)}}>
+              setName(authuser?.name);
+              setContact(authuser?.contact)}}>
               Редактировать
               </button>
             </div>}
